@@ -4,6 +4,8 @@ import io
 from collections import OrderedDict
 import re
 import numpy as np
+import openpyxl
+from openpyxl.styles import PatternFill, Font
 
 # --- CONFIGURACIÓN DE PÁGINA ---
 st.set_page_config(page_title="Convertir TXT Perceptron a Excel", layout="wide")
@@ -267,8 +269,6 @@ if archivo_frontal and archivo_final:
         # Filtrar según selección
         df_filtrado = df_correlacion[df_correlacion["Punto"].isin(puntos_seleccionados)]
 
-        import openpyxl
-        from openpyxl.styles import PatternFill, Font
 
         # --- BOTÓN DE DESCARGA CON ESTILOS EN EXCEL ---
         buffer = io.BytesIO()
@@ -369,4 +369,5 @@ if archivo_frontal and archivo_final:
             data=xml_data,
             file_name="Comparacion_Percepton.xml",
             mime="application/xml"
+
         )
